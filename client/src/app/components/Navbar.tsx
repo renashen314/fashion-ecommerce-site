@@ -8,7 +8,7 @@ const Navbar = () => {
           Home
         </Link>
         <Link href="/products" className="text-white font-bold text-lg">
-          Products
+          Shop All
         </Link>
       </div>
     </nav>

@@ -1,6 +1,12 @@
 "use client";
 import { useParams } from 'next/navigation';
 
+// interface ProductDetailPageProps {
+//     params: {
+//       id: string;  // The type for your dynamic route parameter
+//     };
+//   }
+
 const ProductDetailPage = () => {
   const params = useParams();
   const { id } = params;
