@@ -1,11 +1,14 @@
-# fashion-ecommerce-site
+# Wine & Vibe online store
 ## Progress checklist:
 ### UI
 - [x] Nav
 - [ ] landing page
 - [ ] product detail
+- [x] product card
+- [x] filter
 - [ ] cart
 - [ ] order confirmation
+- [ ] breadcrumbs
 ### Features
 - [x] routing
 #### User
