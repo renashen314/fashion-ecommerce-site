@@ -1,6 +1,6 @@
 const HomePage = () => {
   return (
-  <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white">
+  <div className="min-h-screen bg-gray-100 text-gray-900">
     {/* hero */}
       <section className="flex flex-col items-center justify-center h-screen text-center">
         <h1 className="text-6xl font-extrabold mb-4">Welcome to Vine & Vibe</h1>

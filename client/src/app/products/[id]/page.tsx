@@ -22,8 +22,9 @@ const ProductDetailPage = () => {
   const handleDecrement = () => {
     setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
   };
+
   return (
-<div className="container mx-auto p-10">
+    <div className="container mx-auto p-10">
       <div className="flex flex-col md:flex-row">
         {/* Product Image on the left */}
         <div className="md:w-1/2">
@@ -36,12 +37,12 @@ const ProductDetailPage = () => {
 
         {/* Product Details on the right */}
         <div className="md:ml-10 mt-6 md:mt-0 md:w-1/2">
+          <p className="text-md mb-2 text-gray-700">{product.winery}</p>
           <h1 className="text-4xl font-bold mb-4">{product.name}</h1>
-          <p className="text-lg mb-2 font-semibold">Winery: {product.winery}</p>
-          <p className="text-lg mb-2">Origin: {product.origin}</p>
-          <p className="text-lg mb-2">Type: {product.type}</p>
+          <p className="text-lg mb-2">{product.origin}</p>
+          <p className="text-md mb-2">Type: {product.type}</p>
           <p className="text-lg font-semibold text-gray-900 mb-6">${product.price.toFixed(2)}</p>
-          <p className="text-gray-700 mb-6">{product.description}</p>
+          <p className="text-gray-800 mb-6">{product.description}</p>
 
           {/* Quantity Counter */}
           <div className="flex items-center mb-6">
