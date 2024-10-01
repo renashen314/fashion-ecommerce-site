@@ -3,9 +3,10 @@ import { useState } from 'react';
 interface FilterSidebarProps {
   onSearch: (searchTerm: string) => void;
   onFilter: (filters: any) => void;
+  onFilterReset: () => void;
 }
 
-const FilterSidebar: React.FC<FilterSidebarProps> = ({ onSearch, onFilter }) => {
+const FilterSidebar: React.FC<FilterSidebarProps> = ({ onSearch, onFilter, onFilterReset }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [priceRange, setPriceRange] = useState([0, 50]);
   const [origin, setOrigin] = useState('');
@@ -22,9 +23,15 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({ onSearch, onFilter }) => 
       wineType,
     });
   };
-  const resetFilter = () => {
-    
-  }
+
+  const handleFilterReset = () => {
+    setSearchTerm('');
+    setPriceRange([0, 50]);
+    setOrigin('');
+    setWineType('');
+    onFilterReset(); 
+  };
+  
   return (
     <div className="w-64 bg-white shadow-lg p-6 rounded-md">
       {/* Search Input */}
@@ -38,7 +45,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({ onSearch, onFilter }) => 
           className="w-full px-4 py-2 border border-gray-300 rounded-md"
         />
         <button
-          onClick={handleSearch}
+          onClick={()=>{handleSearch(),console.log(`${searchTerm}`)}}
           className="w-full mt-4 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md"
         >
           Search
@@ -98,7 +105,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({ onSearch, onFilter }) => 
         Apply Filters
       </button>
       <button
-        onClick={resetFilter}
+        onClick={handleFilterReset}
         className="w-full mt-6 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md"
       >
         Reset

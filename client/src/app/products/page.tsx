@@ -7,13 +7,16 @@ import { useProducts } from '../../context/ProductsContext';
 
 const ShopAllPage = () => {
     const { products } = useProducts();
-    const [displayedProducts, setDisplayedProducts] = useState(products);
+    const [filteredProducts, setFilteredProducts] = useState(products);
+
     const handleSearch = (searchTerm: string) => {
         const filtered = products.filter((product) =>
           product.name.toLowerCase().includes(searchTerm.toLowerCase())
         );
-        setDisplayedProducts(filtered);
+        setFilteredProducts(filtered);
+        // console.log(`${filtered}`)
     };
+
     const handleFilter = (filters: { priceRange: number[]; origin: string; wineType: string }) => {
         const filtered = products.filter((product) => {
           return (
@@ -22,19 +25,20 @@ const ShopAllPage = () => {
             (filters.wineType === '' || product.type === filters.wineType)
           );
         });
-        setDisplayedProducts(filtered);
+        setFilteredProducts(filtered);
     };
-    const resetFilter = () => {
-        setDisplayedProducts(products)
-    }
+
+    const handleFilterReset = () => {
+        setFilteredProducts(products); 
+      };
 
   return (
     <div className="min-h-screen bg-gray-100 py-10 flex">
-        <FilterSidebar onSearch={handleSearch} onFilter={handleFilter} />
+        <FilterSidebar onSearch={handleSearch} onFilter={handleFilter} onFilterReset={handleFilterReset}/>
         <div className="flex-grow container mx-auto px-4">
         <h1 className="text-center text-4xl font-bold text-gray-900 mb-10">Shop All Wines</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {products.map((product, index) => (
+            {filteredProducts.map((product, index) => (
             <ProductCard
                 key={index}
                 id={product.id}
