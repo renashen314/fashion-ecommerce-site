@@ -3,7 +3,7 @@
 ### UI
 - [x] Nav
 - [ ] landing page
-- [ ] product detail
+- [x] product detail
 - [x] product card
 - [x] filter
 - [ ] cart
@@ -27,10 +27,10 @@
 - [ ] Order creation and tracking
 - [ ] Order status updates
 ### Optimization
-- [ ] search and filter
+- [x] search and filter
 - [ ] e2e test
 - [ ] jest test
-- [ ] Recommendatio
+- [ ] Recommendation
 - [ ] email notificaiton
 - [ ] review and rating
 - [ ] analytics
